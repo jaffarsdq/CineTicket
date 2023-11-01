@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans');
 
 html {
   font-family: IBM+Plex+Sans,Arial, Helvetica, sans-serif;
