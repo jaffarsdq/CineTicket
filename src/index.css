@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans');
+
+html {
+  font-family: IBM+Plex+Sans,Arial, Helvetica, sans-serif;
+}
+
 .slick-next, .slick-prev {
     background-color: inherit; /* Change background color */
     color: #fff; /* Change text color */
@@ -10,6 +16,6 @@
   }
   
   /* Optionally, you can style the button on hover */
-  .slick-next:hover, .slick-prev:hover {
-    background-color: #7c8084;
-  }
+.slick-next:hover, .slick-prev:hover {
+  background-color: #7c8084;
+}
