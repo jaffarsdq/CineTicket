@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.slick-next, .slick-prev {
+    background-color: inherit; /* Change background color */
+    color: #fff; /* Change text color */
+    border-radius: 50%; /* Make it round */ /* Change font size */
+    border: none;
+  }
+  
+  /* Optionally, you can style the button on hover */
+  .slick-next:hover, .slick-prev:hover {
+    background-color: #7c8084;
+  }
