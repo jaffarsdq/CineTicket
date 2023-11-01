@@ -1,7 +1,7 @@
 
 function MovieTitleBanner() {
   return (
-    <div className="w-screen h-40 text-white bg-slate-800 flex justify-center items-end">
+    <div className="h-40 text-white bg-slate-800 flex justify-center items-end">
         <div className="w-9/12 pb-6">
             <h1 className="text-5xl pb-6">Leo - Tamil</h1>
             <div className="flex gap-5 ms-[1px]">
