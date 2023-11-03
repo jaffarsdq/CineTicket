@@ -9,12 +9,16 @@ html {
   font-family: IBM+Plex+Sans,Arial, Helvetica, sans-serif;
 }
 
+body {
+  background: rgb(238, 238, 243);
+}
+
 .slick-next, .slick-prev {
-    background-color: inherit; /* Change background color */
-    color: #fff; /* Change text color */
-    border-radius: 50%; /* Make it round */ /* Change font size */
-    border: none;
-  }
+  background-color: inherit; /* Change background color */
+  color: #fff; /* Change text color */
+  border-radius: 50%; /* Make it round */ /* Change font size */
+  border: none;
+}
   
   /* Optionally, you can style the button on hover */
 .slick-next:hover, .slick-prev:hover {

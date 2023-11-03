@@ -3,7 +3,7 @@ import BT_Date from "./BT_Date"
 
 function DateAndShowBanner() {
   return (
-    <div className="h-16 bg-gray-100">
+    <div className="h-16 bg-white">
         <div className="w-9/12 h-full mx-auto flex items-center">
 
             <div className="flex-[1] h-full flex items-center">

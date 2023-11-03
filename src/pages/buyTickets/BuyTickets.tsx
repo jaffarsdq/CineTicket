@@ -9,7 +9,7 @@ function BuyTickets() {
       <MovieTitleBanner/>
       <DateAndShowBanner/>
 
-      <div className="w-9/12 bg-gray-50 mx-auto mt-3">
+      <div className="w-9/12 bg-white mx-auto mt-3">
 
         <BT_topBar/>
 
