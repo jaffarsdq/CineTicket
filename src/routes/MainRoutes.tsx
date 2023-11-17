@@ -1,14 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 
-import Home from "../pages/home/Home";
-import BuyTickets from "../pages/buyTickets/BuyTickets";
+import Home from "../pages/Home";
+import BuyTickets from "../pages/BuyTickets";
+import BookSeats from "../pages/BookSeats";
 
 
 function MainRoutes() {
     return (
         <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/buytickets" element={<BuyTickets />} />
+            <Route path="/movie/listing" element={<BuyTickets />} />
+            <Route path="/movie/seatSelection" element={<BookSeats />} />
         </Routes>
     );
 }

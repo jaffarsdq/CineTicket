@@ -1,14 +1,16 @@
-import Banner from "../../components/Banner";
-import Card from "../../components/Card";
-import Carousel from "../../components/Carousel";
-import Banner1 from '../../assets/banner1.avif'
-import Banner2 from '../../assets/banner2.avif'
-import axios from "axios";
+import Banner from "../components/Banner";
+import Card from "../components/Card";
+import Carousel from "../components/Carousel";
+import Banner1 from '../assets/banner1.avif'
+import Banner2 from '../assets/banner2.avif'
 import {useEffect, useState} from "react"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import {GrNext, GrPrevious} from "react-icons/gr"
+import axiosInstance from "../config/AxiosInstance";
+import HomeLayout from "../layout/HomeLayout";
+import Movie from "../Types/Movie";
 
 function Home() {
   var settings = {
@@ -51,43 +53,37 @@ function Home() {
     ]
   };
 
-  interface Movie {
-    _id: string;
-    poster: string;
-    name: string;
-    trailerUrl: string;
-  }
+  type MoviePoster = [{
+    id: string,
+    poster: string,
+    name: string
+  }];
   
-  interface MovieList {
-    movies: Movie[];
-    map: (callback: (movie: Movie, index: number) => any) => any[];
-  }
-  
+  const [moviePosters, setMoviePosters] = useState<MoviePoster>([{id: "", poster: "", name: ""}]);
 
-  const [movieList, setMovieList] = useState<MovieList>();
-
-  const apiUrl = 'https://mbaservice.onrender.com/mba/api/v1/movies';
-
-  async function getMovies () {
-    await axios.get(apiUrl)
-    .then(response => {
-      // Handle the successful response here
-      setMovieList(response.data.data)
-      console.log(movieList)
-    })
-    .catch(error => {
-      // Handle any errors that occur during the request
-      console.error('Error:', error);
-    });
+  async function fetchMovies() {
+      try {
+          const response = await axiosInstance.get("/mba/api/v1/movies");
+          const movieData = response.data.data.map((movie: Movie) => {
+              return {
+                  id: movie._id,
+                  poster: movie.poster,
+                  name: movie.name
+              };
+          });
+          console.log(movieData);
+          setMoviePosters(movieData);
+      } catch(error) {
+          console.log(error);
+      }
   }
 
   useEffect(() => {
-    getMovies()
-  }, [])
-  
+      fetchMovies();
+  }, []);
 
   return (
-    <>
+    <HomeLayout>
       <Carousel/>
         <div className="w-10/12 md:w-9/12 mx-auto flex flex-col gap-5">
             
@@ -98,8 +94,8 @@ function Home() {
             <div className="flex flex-col gap-1 justify-around min-h-[300px]">
               
               <Slider {...settings}>
-                {movieList && movieList.map((movie, idx) => (
-                  <Card key={idx} url={movie.trailerUrl} cardImg={movie.poster} name={movie.name}/>
+                {moviePosters && moviePosters.map((movie, idx) => (
+                  <Card key={idx} movieId={movie.id} movieImg={movie.poster} movieName={movie.name}/>
                 ))}  
               </Slider>
             </div>
@@ -108,7 +104,7 @@ function Home() {
 
         </div>
 
-    </>
+    </HomeLayout>
   );
 }
 
